@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.Documents.Typed.Named.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Documents.Typed.Named\Soenneker.Documents.Typed.Named.csproj" />
     </ItemGroup>
 
     <ItemGroup>
