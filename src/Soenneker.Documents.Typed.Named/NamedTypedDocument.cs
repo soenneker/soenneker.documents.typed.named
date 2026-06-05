@@ -9,6 +9,9 @@ namespace Soenneker.Documents.Typed.Named;
 /// </summary>
 public abstract class NamedTypedDocument : TypedDocument, INamedTypedDocument
 {
+    /// <summary>
+    /// Gets or sets name.
+    /// </summary>
     [JsonPropertyName("name")]
     [JsonProperty("name")]
     public virtual string Name { get; set; } = null!;
