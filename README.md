@@ -5,14 +5,38 @@
 
 # Soenneker.Documents.Typed.Named
 
-Essentially just adds Name to the document.
+Provides a typed document base with an additional serialized `Name` field.
 
-## Install
+## Installation
 
 ```bash
 dotnet add package Soenneker.Documents.Typed.Named
 ```
 
-## What you get
+## Usage
 
-- `INamedTypedDocument` — Essentially just adds Name to the document.
+```csharp
+using Soenneker.Documents.Typed.Named;
+
+public sealed class WorkflowDocument : NamedTypedDocument
+{
+    public override string EntityType { get; set; } = "workflow";
+
+    public bool Enabled { get; set; }
+}
+
+var workflow = new WorkflowDocument
+{
+    DocumentId = "onboarding",
+    PartitionKey = "tenant-7",
+    CreatedAt = DateTimeOffset.UtcNow,
+    Name = "Customer onboarding",
+    Enabled = true
+};
+```
+
+The inherited fields serialize as `id`, `partitionKey`, `createdAt`, `modifiedAt`, `entityType`, and `name` with both System.Text.Json and Newtonsoft.Json attributes.
+
+Derived classes must implement `EntityType`. `Name` is virtual and can be overridden when a specialized storage model needs different behavior. Neither property is initialized or validated by the package, and no polymorphic serializer is registered automatically.
+
+`INamedTypedDocument` combines `INamedDocument` and `ITypedDocument` without adding members. Use it when persistence or routing code needs the complete identity, timestamp, name, and discriminator contract.
