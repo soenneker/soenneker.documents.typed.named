@@ -47,4 +47,7 @@
         <PackageReference Include="Soenneker.Documents.Typed" Version="4.0.134" />
         <PackageReference Include="Soenneker.Documents.Named" Version="4.0.2770" />
     </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    </ItemGroup>
 </Project>
