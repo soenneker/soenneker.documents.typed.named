@@ -35,7 +35,7 @@ var workflow = new WorkflowDocument
 };
 ```
 
-The inherited fields serialize as `id`, `partitionKey`, `createdAt`, `modifiedAt`, `entityType`, and `name` with both System.Text.Json and Newtonsoft.Json attributes.
+The inherited fields serialize as `id`, `partitionKey`, `createdAt`, `modifiedAt`, `entityType`, and `name` with System.Text.Json attributes.
 
 Derived classes must implement `EntityType`. `Name` is virtual and can be overridden when a specialized storage model needs different behavior. Neither property is initialized or validated by the package, and no polymorphic serializer is registered automatically.
 
